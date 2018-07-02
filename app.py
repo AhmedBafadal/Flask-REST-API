@@ -22,6 +22,7 @@ jwt = JWTManager(app)
 
 @jwt.user_claims_loader
 def add_claims_to_jwt(identity):
+    # If user is first user created on the database
     if identity == 1:
         return {'is_admin': True}
     return {'is_admin': False}
