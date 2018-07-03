@@ -67,6 +67,6 @@ class ItemList(Resource):
         if user_id:
             return {'items': items}, 200
         # or use list(map(lambda x: x.json(), ItemModel.query.all()))
-        return {'items': [item.name() for item in items],
+        return {'items': [item[name] for item in items],
                 'message': 'More data available if you log in.'
                 }, 200
