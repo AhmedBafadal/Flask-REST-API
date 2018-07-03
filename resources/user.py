@@ -11,7 +11,7 @@ _user_parser.add_argument('password', type=str, required=True,
 
 class UserRegister(Resource):
 
-    def post(self,):
+    def post(self):
         data = _user_parser.parse_args()
         if UserModel.find_by_username(data['username']):
             return {"message": "A user with that username already exists"}, 400

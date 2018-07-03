@@ -41,7 +41,7 @@ class Item(Resource):
         if item:
             item.delete_from_db()
             return {'message': 'Item deleted successfully.'}
-        return {'message': 'Item not found.'}. 404
+        return {'message': 'Item not found.'}, 404
 
     def put(self, name):
 
