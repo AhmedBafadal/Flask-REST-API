@@ -1,1 +1,1 @@
-BLACKLIST = {2, 3}
+BLACKLIST = {11, 12}
