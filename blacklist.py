@@ -1,1 +1,1 @@
-BLACKLIST = {11, 12}
+BLACKLIST = set()
