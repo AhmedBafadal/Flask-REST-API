@@ -25,14 +25,14 @@ class UserRegister(Resource):
 class User(Resource):
 
     @classmethod
-    def get(cls, user_id):
+    def get(cls, user_id: int):
         user = UserModel.find_by_id(user_id)
         if not user:
             return {'message': 'User not found.'}, 404
-        return user.json()
+        return user.json(), 200
 
     @classmethod
-    def delete(cls, user_id):
+    def delete(cls, user_id: int):
         user = UserModel.find_by_id(user_id)
         if not user:
             return {'message': 'User not found'}, 404
@@ -42,8 +42,7 @@ class User(Resource):
 
 class UserLogin(Resource):
 
-    @classmethod
-    def post(cls):
+    def post(self):
         # Get data from parser
         data = _user_parser.parse_args()
         # Find user in database
