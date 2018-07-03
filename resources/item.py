@@ -59,6 +59,7 @@ class Item(Resource):
 
 
 class ItemList(Resource):
+
     @jwt_optional
     def get(self):
         # The JWT identity will be the identity of the user that is stored in the jwt.
@@ -67,6 +68,6 @@ class ItemList(Resource):
         if user_id:
             return {'items': items}, 200
         # or use list(map(lambda x: x.json(), ItemModel.query.all()))
-        return {'items': [item[name] for item in items],
+        return {'items': [item['name'] for item in items],
                 'message': 'More data available if you log in.'
                 }, 200
